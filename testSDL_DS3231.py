@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 #
+# Test SDL_DS3231
+# John C. Shovic, SwitchDoc Labs
+# 08/03/2014
+#
+#
 
 # imports
 
@@ -23,13 +28,13 @@ starttime = datetime.datetime.utcnow()
 
 ds3231 = SDL_DS3231.SDL_DS3231(6, 0x68)
 #comment out the next line after the clock has been initialized
-#ds3231.write_now()
+ds3231.write_now()
 
 # Main Loop - sleeps 10 seconds, then reads and prints values of all clocks
 # Also reads two bytes of EEPROM and writes the next value to the two bytes 
 
 # do the AT24C32 eeprom
-'''
+
 print "----------------- "
 print "----------------- "
 print " Test the AT24C32 EEPROM"
@@ -46,7 +51,7 @@ for x in range(0,10):
 	print "address = %i value = %i" %(x, ds3231.read_AT24C32_byte(x)) 
 print "----------------- "
 print "----------------- "
-'''
+
 
 while True:
 
